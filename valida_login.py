@@ -9,7 +9,11 @@ def valida_login():
         senha = input('Digite a senha: ')
         if valida_senha(senha) == True:
             break
-    mensagemV = valida_mensagem(user, senha)
+    while True:
+        mensagem = input('Digite a mensagem: ') 
+        if valida_mensagem(user, senha, mensagem) == True:
+            mensagemV = mensagem
+            break
     return mensagemV
 
 
@@ -19,14 +23,14 @@ def valida_user(user):
         else:
             print("Usuário inválido! O usuário deve ter a primeira letra maiúscula, sem caracteres especiais e sem espaços e no máximo 30 caracteres.")
             return False
+
 def valida_senha(senha):
         if len(senha) >= 10 and any(char.isdigit() for char in senha) and any(char.isupper() for char in senha) and any(char.islower() for char in senha) and any(char in "!@#$%^&*()_+-=[]{}|;:,.<>?/" for char in senha):
             return True
         else:
             return False
 
-def valida_mensagem(user, senha):
-        mensagem = input('Digite a mensagem: ')    
+def valida_mensagem(user, senha, mensagem):   
         if len(mensagem) <= 70:
             encryptedText = cryptographyFramework.encryptMessage(user, senha, mensagem)
             cryptographyFramework.saveNewLine(encryptedText)
