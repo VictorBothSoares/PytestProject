@@ -36,4 +36,5 @@ def valida_mensagem(user, senha, mensagem):
             cryptographyFramework.saveNewLine(encryptedText)
             return True
         else:
-            return print("Mensagem inválida! A mensagem deve ter no máximo 70 caracteres.")
+            print("Mensagem inválida! A mensagem deve ter no máximo 70 caracteres.")
+            return False
