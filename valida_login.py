@@ -1,22 +1,5 @@
 import cryptographyFramework
 
-def valida_login():
-    while True:
-        user = input('Digite o user: ')
-        if valida_user(user) ==  True:
-            break
-    while True:
-        senha = input('Digite a senha: ')
-        if valida_senha(senha) == True:
-            break
-    while True:
-        mensagem = input('Digite a mensagem: ') 
-        if valida_mensagem(user, senha, mensagem) == True:
-            mensagemV = mensagem
-            break
-    return mensagemV
-
-
 def valida_user(user):
         if len(user) > 0 and len(user) <= 30 and user[0].isupper() and user.isalnum():
             return True
